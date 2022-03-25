@@ -1,5 +1,39 @@
 {
+  "name": "book-zone",
+  "version": "1.0.0",
+  "description": "Books Buy/Sell Website",
+  "main": "server.js",
   "dependencies": {
-    "reactstrap": "^9.0.1"
-  }
+    "classnames": "^2.3.1",
+    "csstype": "^3.0.11",
+    "dom-helpers": "^5.2.1",
+    "express": "^4.17.3",
+    "js-tokens": "^4.0.0",
+    "loose-envify": "^1.4.0",
+    "object-assign": "^4.1.1",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-fast-compare": "^3.2.0",
+    "react-is": "^16.13.1",
+    "react-popper": "^2.2.5",
+    "react-transition-group": "^4.4.2",
+    "reactstrap": "^9.0.1",
+    "regenerator-runtime": "^0.13.9",
+    "scheduler": "^0.20.2",
+    "warning": "^4.0.3"
+  },
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kashish307/TEST-.git"
+  },
+  "author": "Kashish Arora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kashish307/TEST-/issues"
+  },
+  "homepage": "https://github.com/kashish307/TEST-#readme"
 }
