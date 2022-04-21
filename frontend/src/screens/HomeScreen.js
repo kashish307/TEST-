@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
 import Message from '../components/Message'
 import Product from '../components/Product'
@@ -8,6 +9,7 @@ import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
   const dispatch =  useDispatch()
+  const navigate = useNavigate()
   const productList = useSelector(state => state.productList)
   const { loading, error, products } = productList
   
@@ -27,7 +29,7 @@ const HomeScreen = () => {
     <Row>
         {products.map(product => (
             <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product ={ product } />
+                <Product product ={ product }/>
             </Col>
         ))}
     </Row>

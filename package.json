@@ -14,6 +14,7 @@
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
     "js-tokens": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
     "loose-envify": "^1.4.0",
     "mongoose": "^6.2.9",
     "object-assign": "^4.1.1",
@@ -49,6 +50,7 @@
   "homepage": "https://github.com/kashish307/TEST-#readme",
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "eslint-plugin-react-hooks": "^4.4.0",
     "nodemon": "^2.0.15"
   }
 }

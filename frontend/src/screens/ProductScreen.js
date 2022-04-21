@@ -6,11 +6,12 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listProductDetails } from '../actions/productActions'
+import { addToCart } from '../actions/cartActions'
 
 const ProductScreen = ({}) =>{
   const navigate =useNavigate();
   const {id}= useParams()
-  const [qty, setQty] =useState(0)
+  const [qty, setQty] =useState(1)
 
   const dispatch = useDispatch()
   const productDetails = useSelector(state => state.productDetails)
@@ -21,7 +22,8 @@ const ProductScreen = ({}) =>{
     }, [dispatch, id] )
 
     const addToCartHandler = () => {
-      navigate(`/cart/${id}?qty=${qty}`)
+    console.log (`id:${id} qty=${qty}`)
+      navigate(`/cart/${id}/${qty}`)
     }
 
   return (<>
@@ -31,12 +33,15 @@ const ProductScreen = ({}) =>{
     {loading ? <Loader />: error ? <Message varient ='danger'>{error}</Message> : (
       <Row>
       <Col md={6}>
-      <Image src={product.image} alt={product.name} fluid />
+      <Image className= 'image' src={product.image} alt={product.name} fluid />
       </Col>
       <Col md={3}>
         <ListGroup varient='flush'>
           <ListGroup.Item>
             <h3>{product.name}</h3>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            author: {product.author}
           </ListGroup.Item>
         <ListGroup.Item>
           <Rating value={product.rating} text={`${product.numReviews} reviews`} color="orange" />
@@ -103,4 +108,4 @@ const ProductScreen = ({}) =>{
     )}
   </>)
 }
-export default ProductScreen
+export default  ProductScreen;

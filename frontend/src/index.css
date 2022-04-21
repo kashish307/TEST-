@@ -6,6 +6,45 @@ h3 {
   padding: 1rem 0;
 }
 
+h1{
+  font-size: 1.8rem;
+  padding: 1rem 0;             
+}
+/* top and bottom padding */
+
+h2{
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
 .rating span {
   margin: 0.1rem;
+}
+
+.photo {
+  height: 280px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image{
+  height:500px;
+  width:370px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buton{
+   margin-top: 10px;
+}
+
+.step{
+  font-size: 0.91rem;
+}
+
+.button{
+  margin-top: 20px ;
 }
