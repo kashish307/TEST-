@@ -48,6 +48,7 @@ const OrderScreen = () => {
       Number(order.shippingPrice) +
       Number(order.taxPrice)
     ).toFixed(2)
+    console.log(order.totalPrice);
   }
 
   function loadScript(src) {
@@ -75,12 +76,12 @@ const OrderScreen = () => {
     // const price = {
     //   price: order.totalPrice
     // }
-
-    const price = order.totalPrice
+    
+    const price = Number(order.totalPrice)
     //console.log(price)
     
     const result = await axios
-      .post(`http://localhost:5000/api/payment/api/orders`)
+      .post(`http://localhost:5000/api/payment/api/orders`, {price})
       .catch((err) => {
         alert('Server error. Are you online?')
       })
@@ -95,7 +96,6 @@ const OrderScreen = () => {
     // Getting the order details back
 
     //console.log("result");
-    
 
     const { amount,
       id: order_id,
@@ -123,6 +123,7 @@ const OrderScreen = () => {
             alert('Server error. Are you online?')
           })
         console.log(data)
+        console.log(result);
         // alert(result.data.msg)
       },
      }
@@ -173,7 +174,7 @@ const OrderScreen = () => {
      dispatch(deliverOrder(order))
   }
 
-
+  console.log(order);
   return loading ? (
     <Loader />
   ) : error ? (
