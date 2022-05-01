@@ -1,24 +1,26 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import { Row, Col } from 'react-bootstrap'
 import Message from '../components/Message'
 import Product from '../components/Product'
 import Loader from '../components/Loader'
 import { listProducts } from '../actions/productActions'
+import ProductCarousel from '../components/ProductCarousel'
 
 const HomeScreen = () => {
+   const { keyword } = useParams()
   const dispatch =  useDispatch()
-  const navigate = useNavigate()
   const productList = useSelector(state => state.productList)
   const { loading, error, products } = productList
   
   useEffect(() => {
-    dispatch(listProducts())
-  },[dispatch])
+    dispatch(listProducts(keyword))
+  },[dispatch, keyword])
 
   return (
     <>
+    {!keyword && <ProductCarousel />}
     <h1>Latest Products</h1>
     {
       loading ? (
