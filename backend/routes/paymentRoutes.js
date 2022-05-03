@@ -8,6 +8,7 @@ dotenv.config()
 const router = express.Router()
 
 router.post('/api/orders', async (req, res) => {
+  console.log(req.body);
   try {
     const instance = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,
@@ -44,7 +45,7 @@ router.post('/api/orders', async (req, res) => {
     //console.log(order.totalPrice)
 
     const options = {
-      amount: 100,
+      amount: req.body.price*100,
       currency: 'INR',
       receipt: 'receipt_order_74394',
     }
