@@ -49,7 +49,6 @@ const PlaceOrderScreen = () => {
             shippingPrice: cart.shippingPrice,
             taxPrice: cart.taxPrice,
             totalPrice: cart.totalPrice,
-
         })
     )
     }

@@ -116,21 +116,26 @@ const OrderScreen = () => {
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
         }
-        console.log("response:  "+response);
         const result = await axios
           .post('http://localhost:5000/api/payment/api/success', data)
           .catch((err) => {
             alert('Server error. Are you online?')
           })
-        console.log(data)
-        console.log(result);
+          if(result.data.msg=="success"){
+            const orderDetails = await axios
+            .put(`http://localhost:5000/api/orders/pay/${orderId}`,order)
+            .catch((err)=>{
+              console.log(err);
+            })
+            console.log(orderDetails);
+            order = orderDetails.data;
+          }
         // alert(result.data.msg)
       },
      }
 
     const paymentObject = new window.Razorpay(options)
     paymentObject.open()
-  //  const result = await axios.put(`http://localhost:5000/api/order/${orderId}/pay`)
   
   }
 
